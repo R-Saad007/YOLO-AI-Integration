@@ -77,7 +77,7 @@ if __name__ == '__main__':
         
         Method to execute code
          
-        python yolov8_coordinate_parser.py -img_path (image path) -model_path (direct path to the weights i.e. yolov8n.pt)
+        python yolov8_coordinate_parser.py -img_path (image path)
 
     '''
 
