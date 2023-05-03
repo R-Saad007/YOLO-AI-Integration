@@ -1,5 +1,5 @@
 # YOLO-AI-Integration
-## This is the script for obtaining the bounding box coordinates for an object detection inside an image.
+## This is the script for obtaining the bounding box coordinates for an object detected inside an image.
 
 ### You will have to provide the **image path** to the script before executing it:
 ```python yolov8_coordinate_parser.py -img_path (enter the image path)```
