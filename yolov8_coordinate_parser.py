@@ -39,14 +39,16 @@ class handler():
                 bbox = box.cpu().numpy().xyxy[0]
                 # extracting classname
                 classname = self.model.names[int(box.cls)]
+                #class probability
+                class_probability = box.conf[0].item()
                 # converting the numpy array to a dataframe for JSON processing
                 data = pandas.DataFrame(bbox)
                 # writing the coordinates to a JSON file
-                self.write_output(data[0].to_json(orient='records'), classname)
+                self.write_output(data[0].to_json(orient='records'), classname, class_probability)
         print("JSON file saved!")
         print("Image processed!")
 
-    def write_output(self, data, name):
+    def write_output(self, data, name, prob):
         # writing JSON format output to a file
         with open("output.json", "a") as outfile:
             # indenting the JSON data according to the YOLOv8 JSON output parameters
@@ -55,7 +57,7 @@ class handler():
                 result = f'Detections: ' + data + '\n'
             else:
                 data = json.dumps(data)
-                result = f'Class: {name}\t Detections: ' + data + '\n'
+                result = f'Class: {name}\t Detections: ' + data + f'\tClass Probability: {prob}\n'
             outfile.write(result)
         outfile.close()
 
