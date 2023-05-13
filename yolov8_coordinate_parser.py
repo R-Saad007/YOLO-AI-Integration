@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='I/O and model file paths required.')
     parser.add_argument('-img_path', type=str, dest='img_path', required=True)
-    #parser.add_argument('-model_path', type=str, dest='model_path', required=True)
+    parser.add_argument('-model_path', type=str, dest='model_path', required=True)
     args = parser.parse_args()
 
     # For calculating execution time
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     start.record()
 
     # whatever you are timing goes here
-    vid_handler = handler(args.img_path, './best.pt')
+    vid_handler = handler(args.img_path, args.model_path')
     vid_handler.load_model()
     vid_handler.img_processing()
     del vid_handler
