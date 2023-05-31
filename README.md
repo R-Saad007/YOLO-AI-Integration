@@ -1,4 +1,4 @@
-## YoloV8 Object Detection Script
+## YOLOv8 Object Detection Script
 ### This script produces a JSON file containing the class name, bounding box coordinates and the probabilities of a predicted object inside an image. The JSON file can be fed to the front-end for further processing.
 
 ### Execution:
